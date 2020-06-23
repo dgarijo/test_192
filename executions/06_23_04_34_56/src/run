@@ -1,0 +1,30 @@
+#!/bin/bash
+set +x
+set -e
+. .colors.sh
+
+BASEDIR=$PWD
+. $BASEDIR/io.sh 1 1 1 "$@"
+CURDIR=`pwd`
+## INPUTS VARIABLES
+input_txt=${INPUTS1}
+
+
+## PARAMETERS VARIABLES
+p=${PARAMS1}
+
+
+set -xe
+
+####### WRITE YOUR INVOCATION LINE AFTER THIS COMMENT
+
+
+pushd .
+java -jar test_192-1.0-SNAPSHOT-jar-with-dependencies.jar -i ${input_txt} -p ${p} -o out.json
+popd
+
+set +x
+echo -e "$(c G)[success] The model has exited with code SUCCESS"
+####### WRITE YOUR INVOCATION LINE BEFORE THIS COMMENT
+cd $BASEDIR
+. $BASEDIR/output.sh

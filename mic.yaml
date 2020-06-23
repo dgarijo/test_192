@@ -1,0 +1,24 @@
+step: 1
+name: test_192
+docker_image: test_192:latest
+framework: !!python/object/apply:mic.constants.Framework
+- !!python/tuple
+  - java8
+  - mintproject/java:8
+  - .jar
+parameters:
+  p:
+    default_value: 130030
+    type: int
+inputs:
+  input_txt:
+    path: input.txt
+    format: txt
+code_files:
+  test_192-1_0-snapshot-jar-with-dependencies_jar:
+    path: test_192-1.0-SNAPSHOT-jar-with-dependencies.jar
+    format: jar
+outputs:
+  out_json:
+    path: out.json
+    format: json
